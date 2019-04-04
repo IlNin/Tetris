@@ -55,8 +55,8 @@ public class Menu extends JFrame {
     tetris.setResizable(false);
     tetris.setVisible(true);
     tetris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-	setVisible(false);
-	dispose(); } }); // Chiude la finestra attuale contenente il menu
+    setVisible(false);
+    dispose(); } }); // Chiude la finestra attuale contenente il menu
   
   about.addActionListener(new ActionListener() {
    public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class Menu extends JFrame {
    public void actionPerformed(ActionEvent e) {
     timer.cancel();
     setVisible(false);
-	dispose(); } });
+    dispose(); } });
   
   preparaGriglia();
   inserisciPezzo(); }
@@ -76,8 +76,8 @@ public class Menu extends JFrame {
   for (int i = 0; i < 9; i++) {
    for (int j = 0; j < 26; j++) {
     griglia[i][j] = new JLabel("     "); // Le caselle sono costituite da delle JLabel vuote colorate di bianco
-	griglia[i][j].setBackground(Color.WHITE);
-	griglia[i][j].setOpaque(true);
+    griglia[i][j].setBackground(Color.WHITE);
+    griglia[i][j].setOpaque(true);
     pannello.add(griglia[i][j]); } } }
 
  public void inserisciPezzo() { // Inserisce un nuovo pezzo per l'animazione
@@ -238,7 +238,7 @@ public class Menu extends JFrame {
    int X = correnti.getX(); // Ottiene le coordinate dell'elemento attuale
    int Y = correnti.getY();
    if (Y == 0 || griglia[X][Y-1].getBackground() == Color.BLUE) { // Controlla se la griglia e' finita o se il posto a sinistra e' occupato
-	 return false; } }
+    return false; } }
   return true; }
  
  public void spostaSinistra() { // Sposta il pezzo attuale a sinistra
@@ -246,15 +246,15 @@ public class Menu extends JFrame {
    Iterator it = pezzo.getElementi().iterator();
    while (it.hasNext()) { // Scorre tutti gli elementi
     Coordinate correnti = (Coordinate) it.next();
-	int X = correnti.getX(); // Ottiene le coordinate dell'elemento attuale
-	int Y = correnti.getY();
-	if (griglia[X][Y].getName() != "Flag") { // "Flag" indica che nella casella attuale e' gia' stato spostato un elemento del pezzo attuale. Non va quindi colorata di bianco!
-	 griglia[X][Y].setBackground(Color.WHITE); } // Colora di bianco la casella, in quanto l'elemento scala di una posizione
-	if (griglia[X][Y-1].getBackground() == Color.RED) { // La casella accanto e' gia' colorata di rosso: setta il flag!
-	 griglia[X][Y-1].setName("Flag"); }
-	else { // Altrimenti la colora di rosso
-	 griglia[X][Y-1].setBackground(Color.RED); }
-	correnti.setY(Y-1);	} // Aggiorna le coordinate
+    int X = correnti.getX(); // Ottiene le coordinate dell'elemento attuale
+    int Y = correnti.getY();
+    if (griglia[X][Y].getName() != "Flag") { // "Flag" indica che nella casella attuale e' gia' stato spostato un elemento del pezzo attuale. Non va quindi colorata di bianco!
+     griglia[X][Y].setBackground(Color.WHITE); } // Colora di bianco la casella, in quanto l'elemento scala di una posizione
+    if (griglia[X][Y-1].getBackground() == Color.RED) { // La casella accanto e' gia' colorata di rosso: setta il flag!
+     griglia[X][Y-1].setName("Flag"); }
+    else { // Altrimenti la colora di rosso
+     griglia[X][Y-1].setBackground(Color.RED); }
+    correnti.setY(Y-1);	} // Aggiorna le coordinate
    cancellaFlag(); // Ripristina i flag
    centroY = centroY-1;
    pivotY = pivotY-1; } }
@@ -274,18 +274,18 @@ public class Menu extends JFrame {
    Iterator it = pezzo.getElementi().iterator();
    while (it.hasNext()) {
     Coordinate correnti = (Coordinate) it.next();
-	int X = correnti.getX();
-	int Y = correnti.getY();
-	if (griglia[X][Y].getName() != "Flag") {
+    int X = correnti.getX();
+    int Y = correnti.getY();
+    if (griglia[X][Y].getName() != "Flag") {
      griglia[X][Y].setBackground(Color.WHITE); }
-	if (griglia[X][Y+1].getBackground() == Color.RED) {
-	 griglia[X][Y+1].setName("Flag");; }
-	else {
-	 griglia[X][Y+1].setBackground(Color.RED); }
-	correnti.setY(Y+1); }
-  cancellaFlag();
-  centroY = centroY+1;
-  pivotY = pivotY+1; } }
+    if (griglia[X][Y+1].getBackground() == Color.RED) {
+     griglia[X][Y+1].setName("Flag");; }
+    else {
+     griglia[X][Y+1].setBackground(Color.RED); }
+    correnti.setY(Y+1); }
+   cancellaFlag();
+   centroY = centroY+1;
+   pivotY = pivotY+1; } }
  
  public boolean controllaSpazioSotto() { // Come prima, ma verso il basso
   Iterator it = pezzo.getElementi().iterator();
@@ -327,104 +327,104 @@ public class Menu extends JFrame {
     Iterator it = pezzo.getElementi().iterator();
     while (it.hasNext()) {
      Coordinate correnti = (Coordinate) it.next();
-	 int X = correnti.getX();
-	 int Y = correnti.getY();
-	 if (griglia[X][Y].getName() != "Flag") {
-	  griglia[X][Y].setBackground(Color.WHITE); }
-	 if (griglia[X+1][Y].getBackground() == Color.RED) {
-	  griglia[X+1][Y].setName("Flag"); }
-	 else {
-	  griglia[X+1][Y].setBackground(Color.RED); }
-	 correnti.setX(X+1); }
-   cancellaFlag();
-   centroX = centroX+1;
-   pivotX = pivotX+1; }
+     int X = correnti.getX();
+     int Y = correnti.getY();
+     if (griglia[X][Y].getName() != "Flag") {
+      griglia[X][Y].setBackground(Color.WHITE); }
+     if (griglia[X+1][Y].getBackground() == Color.RED) {
+      griglia[X+1][Y].setName("Flag"); }
+     else {
+      griglia[X+1][Y].setBackground(Color.RED); }
+     correnti.setX(X+1); }
+    cancellaFlag();
+    centroX = centroX+1;
+    pivotX = pivotX+1; }
   
    else { // I pezzi toccano terra e diventano blu
     Iterator it = pezzo.getElementi().iterator();
-	while (it.hasNext()) {
-	 Coordinate correnti = (Coordinate) it.next();
-	 int X = correnti.getX();
-	 int Y = correnti.getY();
-	 griglia[X][Y].setBackground(Color.BLUE); }
-	contatorePezzo = contatorePezzo + 1; // Aggiorna il contatore e passa al pezzo successivo
-	inserisciPezzo(); } } }
+    while (it.hasNext()) {
+     Coordinate correnti = (Coordinate) it.next();
+     int X = correnti.getX();
+     int Y = correnti.getY();
+     griglia[X][Y].setBackground(Color.BLUE); }
+    contatorePezzo = contatorePezzo + 1; // Aggiorna il contatore e passa al pezzo successivo
+    inserisciPezzo(); } } }
  
  public synchronized void cambiaOrientamento() {
   if (tipoPezzo == 1) { // I pezzi a forma di I ruotano in base all'elemento pivot
    if (orientamento == 'n') {
-	 orientamento = 'e';
-	 griglia[pivotX][pivotY].setBackground(Color.WHITE);
-	 griglia[pivotX-1][pivotY].setBackground(Color.WHITE);
-	 griglia[pivotX-3][pivotY].setBackground(Color.WHITE);
-	 griglia[pivotX-2][pivotY-1].setBackground(Color.RED);
-	 griglia[pivotX-2][pivotY+1].setBackground(Color.RED);
-	 griglia[pivotX-2][pivotY+2].setBackground(Color.RED);
-     pezzo.coordinateRotazione(pivotX-2, pivotY-1, pivotX-2, pivotY, pivotX-2, pivotY+1, pivotX-2, pivotY+2);
-	 pivotX = pivotX-2; }
+    orientamento = 'e';
+    griglia[pivotX][pivotY].setBackground(Color.WHITE);
+    griglia[pivotX-1][pivotY].setBackground(Color.WHITE);
+    griglia[pivotX-3][pivotY].setBackground(Color.WHITE);
+    griglia[pivotX-2][pivotY-1].setBackground(Color.RED);
+    griglia[pivotX-2][pivotY+1].setBackground(Color.RED);
+    griglia[pivotX-2][pivotY+2].setBackground(Color.RED);
+    pezzo.coordinateRotazione(pivotX-2, pivotY-1, pivotX-2, pivotY, pivotX-2, pivotY+1, pivotX-2, pivotY+2);
+    pivotX = pivotX-2; }
    else if (orientamento == 'e') {
-	 orientamento = 'n';
-	 griglia[pivotX][pivotY-1].setBackground(Color.WHITE);
-	 griglia[pivotX][pivotY+1].setBackground(Color.WHITE);
-	 griglia[pivotX][pivotY+2].setBackground(Color.WHITE);
-	 griglia[pivotX-1][pivotY].setBackground(Color.RED);
-	 griglia[pivotX+1][pivotY].setBackground(Color.RED);
-	 griglia[pivotX+2][pivotY].setBackground(Color.RED);
-	 pezzo.coordinateRotazione(pivotX+2, pivotY, pivotX, pivotY, pivotX+1, pivotY, pivotX-1, pivotY);
-	 pivotX = pivotX+2; } }
+    orientamento = 'n';
+    griglia[pivotX][pivotY-1].setBackground(Color.WHITE);
+    griglia[pivotX][pivotY+1].setBackground(Color.WHITE);
+    griglia[pivotX][pivotY+2].setBackground(Color.WHITE);
+    griglia[pivotX-1][pivotY].setBackground(Color.RED);
+    griglia[pivotX+1][pivotY].setBackground(Color.RED);
+    griglia[pivotX+2][pivotY].setBackground(Color.RED);
+    pezzo.coordinateRotazione(pivotX+2, pivotY, pivotX, pivotY, pivotX+1, pivotY, pivotX-1, pivotY);
+    pivotX = pivotX+2; } }
   
   else if (tipoPezzo > 1) { // Tutti gli altri pezzi usano invece un metodo in comune basato sull'elemento Centro
     char[][] grigliaInvertita = new char[3][3]; // Creo una matrice di 3x3 attorno all'elemento centrale, in cui le righe e le colonne sono invertite
-	int X = 0; 
-	int Y = 0;
+    int X = 0; 
+    int Y = 0;
     for (int i = centroX-1; i <= centroX+1; i++) { 
      for (int j = centroY-1; j <= centroY+1; j++) {
-	  if (griglia[i][j].getBackground() == Color.RED) {
-	   grigliaInvertita[Y][X] = 'x'; }
-	  else {
-	   grigliaInvertita[Y][X] = 'o'; }
-	   Y = Y+1; }
-	 Y = 0;
-	 X = X+1; }
+      if (griglia[i][j].getBackground() == Color.RED) {
+       grigliaInvertita[Y][X] = 'x'; }
+      else {
+       grigliaInvertita[Y][X] = 'o'; }
+      Y = Y+1; }
+     Y = 0;
+     X = X+1; }
 	
-	Y = 0; // Inverto la prima riga con la terza
-	for (int j = 0; j <= 2; j++) { 
-	 char swap = grigliaInvertita[0][j];
-	 grigliaInvertita[0][j] = grigliaInvertita[2][j];
-	 grigliaInvertita[2][j] = swap;
+    Y = 0; // Inverto la prima riga con la terza
+    for (int j = 0; j <= 2; j++) { 
+     char swap = grigliaInvertita[0][j];
+     grigliaInvertita[0][j] = grigliaInvertita[2][j];
+     grigliaInvertita[2][j] = swap;
      Y = Y+1; } // Ho ora ottenuto una matrice contenente la simulazione della rotazione del pezzo attuale
 	
-	X = 0; // Controllo se il pezzo si puo' girare confrontando la matrice invertita con il pezzo di griglia corrispondente
-	Y = 0;
-	for (int i = centroX-1; i <= centroX+1; i++) { 
-	 for (int j = centroY-1; j <= centroY+1; j++) {
-	  if (griglia[i][j].getBackground() == Color.BLUE && grigliaInvertita[X][Y] == 'x') { 
-	   return; } // COLLISIONE: il pezzo NON si puo' ruotare
-	  else {
-	   Y = Y+1; } }
-	 Y = 0;
-	 X = X+1; }
+    X = 0; // Controllo se il pezzo si puo' girare confrontando la matrice invertita con il pezzo di griglia corrispondente
+    Y = 0;
+    for (int i = centroX-1; i <= centroX+1; i++) { 
+     for (int j = centroY-1; j <= centroY+1; j++) {
+      if (griglia[i][j].getBackground() == Color.BLUE && grigliaInvertita[X][Y] == 'x') { 
+       return; } // COLLISIONE: il pezzo NON si puo' ruotare
+      else {
+       Y = Y+1; } }
+     Y = 0;
+     X = X+1; }
 	
-	X = 0; // Il pezzo si puo' ruotare
-	Y = 0;
-	if (orientamento == 'e') { // Aggiorna l'orientamento del pezzo
-	 orientamento = 'n'; }
-	else if (orientamento == 'n') {
-	 orientamento = 'w'; }
-	else if (orientamento == 'w') {
-	 orientamento = 's'; }
-	else if (orientamento == 's') {
-	 orientamento = 'e'; }
-	Iterator it = pezzo.getElementi().iterator(); // Effettua la rotazione sulla griglia di gioco
-	for (int i = centroX-1; i <= centroX+1; i++) { 
-	 for (int j = centroY-1; j <= centroY+1; j++) {
-	  if (grigliaInvertita[X][Y] == 'x') {
-	   Coordinate attuali = (Coordinate) it.next();
-	   attuali.setX(i);
-	   attuali.setY(j);
-	   griglia[i][j].setBackground(Color.RED); }
-	  else if (griglia[i][j].getBackground() != Color.BLUE) {
-	   griglia[i][j].setBackground(Color.WHITE); }
-	  Y = Y+1; }
-	 Y = 0;
-	 X = X+1; } } } }
+    X = 0; // Il pezzo si puo' ruotare
+    Y = 0;
+    if (orientamento == 'e') { // Aggiorna l'orientamento del pezzo
+     orientamento = 'n'; }
+    else if (orientamento == 'n') {
+     orientamento = 'w'; }
+    else if (orientamento == 'w') {
+     orientamento = 's'; }
+    else if (orientamento == 's') {
+     orientamento = 'e'; }
+    Iterator it = pezzo.getElementi().iterator(); // Effettua la rotazione sulla griglia di gioco
+    for (int i = centroX-1; i <= centroX+1; i++) { 
+     for (int j = centroY-1; j <= centroY+1; j++) {
+      if (grigliaInvertita[X][Y] == 'x') {
+       Coordinate attuali = (Coordinate) it.next();
+       attuali.setX(i);
+       attuali.setY(j);
+       griglia[i][j].setBackground(Color.RED); }
+      else if (griglia[i][j].getBackground() != Color.BLUE) {
+       griglia[i][j].setBackground(Color.WHITE); }
+       Y = Y+1; }
+      Y = 0;
+      X = X+1; } } } }
