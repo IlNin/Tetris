@@ -326,16 +326,16 @@ public class Tetris extends JFrame {
   scorriPezzo = false;
   if (tipoPezzo == 1) { // I pezzi a forma di I ruotano in base all'elemento pivot
    if (orientamento == 'n') {
-     if (pivotY != 0 && (pivotY <= 7) && griglia[pivotX-2][pivotY-1].getBackground() != Color.BLUE && griglia[pivotX-2][pivotY+1].getBackground() != Color.BLUE && griglia[pivotX-2][pivotY+2].getBackground() != Color.BLUE) {
-      orientamento = 'e';
-      griglia[pivotX][pivotY].setBackground(Color.WHITE);
-      griglia[pivotX-1][pivotY].setBackground(Color.WHITE);
-      griglia[pivotX-3][pivotY].setBackground(Color.WHITE);
-      griglia[pivotX-2][pivotY-1].setBackground(Color.RED);
-      griglia[pivotX-2][pivotY+1].setBackground(Color.RED);
-      griglia[pivotX-2][pivotY+2].setBackground(Color.RED);
-      pezzo.coordinateRotazione(pivotX-2, pivotY-1, pivotX-2, pivotY, pivotX-2, pivotY+1, pivotX-2, pivotY+2);
-      pivotX = pivotX-2; } }
+    if (pivotY != 0 && (pivotY <= 7) && griglia[pivotX-2][pivotY-1].getBackground() != Color.BLUE && griglia[pivotX-2][pivotY+1].getBackground() != Color.BLUE && griglia[pivotX-2][pivotY+2].getBackground() != Color.BLUE) {
+     orientamento = 'e';
+     griglia[pivotX][pivotY].setBackground(Color.WHITE);
+     griglia[pivotX-1][pivotY].setBackground(Color.WHITE);
+     griglia[pivotX-3][pivotY].setBackground(Color.WHITE);
+     griglia[pivotX-2][pivotY-1].setBackground(Color.RED);
+     griglia[pivotX-2][pivotY+1].setBackground(Color.RED);
+     griglia[pivotX-2][pivotY+2].setBackground(Color.RED);
+     pezzo.coordinateRotazione(pivotX-2, pivotY-1, pivotX-2, pivotY, pivotX-2, pivotY+1, pivotX-2, pivotY+2);
+     pivotX = pivotX-2; } }
    else if (orientamento == 'e') {
     if (pivotX <= 13 && pivotX >= 1 && griglia[pivotX+1][pivotY].getBackground() != Color.BLUE && griglia[pivotX-1][pivotY].getBackground() != Color.BLUE && griglia[pivotX+2][pivotY].getBackground() != Color.BLUE) {
      orientamento = 'n';
