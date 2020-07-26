@@ -2,7 +2,7 @@
 A fully playable version of Tetris that I made as a passion project while learning Java at University. 
 
 
-<b>Rules:</b>
+<b>Rules:</b><br/>
 Rotate and turn descending blocks to right and left until they touch the floor or other blocks. If you obtain a row completely devoid of empty spaces, then it will dissappear and you will gain points. Otherwise the screen will become increasingly cluttered until you reach a game over.
 
 
